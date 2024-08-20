@@ -1,7 +1,7 @@
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 from lib import (
-    run_suites, run_suite, respond, get_query_param,
-    get_reports, get_suite_run_reports
+    run_suite, respond, get_query_param,
+    get_suite_run_reports
 )
 
 
@@ -12,10 +12,6 @@ class Handler(SimpleHTTPRequestHandler):
             respond(self, 200)
             return
         if path.startswith('/run'):
-            if path == '/run':
-                run_suites()
-                respond(self, 200)
-                return
             suite = get_query_param(path, "suite")
             if suite is None:
                 respond(self, 400)
@@ -25,10 +21,6 @@ class Handler(SimpleHTTPRequestHandler):
             respond(self, 200)
             return
         if path.startswith('/report'):
-            if path == '/report':
-                get_reports()
-                respond(self, 200)
-                return
             suite = get_query_param(path, "suite")
             if suite is None:
                 respond(self, 400)

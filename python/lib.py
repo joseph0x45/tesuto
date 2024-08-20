@@ -1,15 +1,20 @@
 """
-    Contains some utility functions
-    Noting crazy
+    Contains utility functions
 """
 from urllib.parse import urlparse, parse_qs
+import importlib
 
 
-def run_suites():
-    """
-    Run all test suites
-    """
-    print("Running all test suites")
+def load_suite(name):
+    try:
+        module_name = f"suites.{name}"
+        module = importlib.import_module(module_name)
+        suite = getattr(module, name)
+        return suite
+    except ModuleNotFoundError:
+        return None
+    except AttributeError:
+        return None
 
 
 def run_suite(suite_name):
@@ -17,7 +22,13 @@ def run_suite(suite_name):
     Run the suite corresponding to the passed name if exists
     If the suite is not found nothing happens
     """
+    suite = load_suite(suite_name)
+    if suite is None:
+        print("Suite not found")
+        return
     print(f"About to run suite: {suite_name}")
+    for test_case in suite["test_cases"]:
+        test_case["fn"]()
 
 
 def get_reports():
