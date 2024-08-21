@@ -5,7 +5,7 @@ Little template and library for running automated integration tests and get repo
 This is just a prototype, the whole idea is still a work in progress
 
 ## Implementations
-- [x] Python
+- [x] [Python](./python.md) 
 - [ ] Golang
 
 
