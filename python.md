@@ -5,17 +5,13 @@ This work is still in progres, this is just a prototype
 Clone the project or just copy the python folder found at the root of the project.
 
 The directory has the following structure:
-
+```
 ├── lib.py
-
 ├── main.py
-
 └── suites
-
-    ├── __init__.py
-
+    ├── init.py
     └── test_suite.py
-
+```
 The `lib.py` file contains some utilities that tesuto uses to run and save the reports. Don't touch that file unless you know what you are doing
 
 The  `main.py` file contains the server, now again do not touch that file unless you know what you are doing 
