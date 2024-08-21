@@ -7,9 +7,13 @@ Clone the project or just copy the python folder found at the root of the projec
 The directory has the following structure:
 
 ├── lib.py
+
 ├── main.py
+
 └── suites
+
     ├── __init__.py
+
     └── test_suite.py
 
 The `lib.py` file contains some utilities that tesuto uses to run and save the reports. Don't touch that file unless you know what you are doing
