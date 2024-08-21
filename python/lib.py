@@ -10,7 +10,7 @@ report_template_upper = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Table with Status Colors</title>
+    <title>Test report</title>
     <style>
         body {
             display: flex;

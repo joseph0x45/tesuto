@@ -6,4 +6,4 @@ This is just a prototype, the whole idea is still a work in progress
 
 ### Implementations
 - [x] Python
-- [] Golang
+- [ ] Golang
