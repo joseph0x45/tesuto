@@ -26,8 +26,11 @@ class Handler(SimpleHTTPRequestHandler):
                 respond(self, 400)
                 self.wfile.write(b'{"error":"No suite name provided"}')
                 return
-            get_suite_run_reports(suite)
-            respond(self, 200)
+            report = get_suite_run_reports(suite)
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html')
+            self.end_headers()
+            self.wfile.write(report.encode('utf-8'))
             return
         self.send_error(404, "Not Found")
 

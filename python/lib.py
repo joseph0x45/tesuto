@@ -106,19 +106,19 @@ def run_suite(suite_name):
         file.write(report)
 
 
-def get_reports():
+def get_suite_run_reports(suite_name) -> str:
     """
-    Returns all the current reports in the database
-    """
-    print("Getting all the reports")
-
-
-def get_suite_run_reports(suite_name):
-    """
-    Returns all the current reports on a specific test suite run
-    in the database
+    Returns the latest report for the specified test suite
     """
     print(f"Getting all reports about suite {suite_name}")
+    try:
+        with open(f"{suite_name}.html", 'r') as file:
+            content = file.read()
+            return content
+    except FileNotFoundError:
+        return f"<h1>No report found for test suite '{suite_name}'</h1>"
+    except Exception as e:
+        return f"<h1>Error while reading report: {str(e)}</h1>"
 
 
 def respond(self, http_status):
